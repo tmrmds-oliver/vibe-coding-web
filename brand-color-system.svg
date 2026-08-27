@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#243B34" flood-opacity=".10"/></filter>
+    <style>
+      .sans{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}.serif{font-family:Georgia,"Noto Serif TC",serif}.ink{fill:#243B34}.muted{fill:#6F746F}.small{font-size:18px;letter-spacing:2px}.body{font-size:24px}.title{font-size:42px;font-weight:700;letter-spacing:-1px}.label{font-size:22px;font-weight:700}.hex{font-size:20px;letter-spacing:2px}
+    </style>
+  </defs>
+  <rect width="1600" height="1000" fill="#F8F6F2"/>
+  <rect x="54" y="54" width="1492" height="892" rx="4" fill="none" stroke="#C98F83" stroke-opacity=".55"/>
+  <text x="92" y="105" class="sans small" fill="#C98F83">HX / TMR</text>
+  <text x="1508" y="105" class="sans small" text-anchor="end" fill="#6F746F">AI × DATA × GROWTH / 01</text>
+  <line x1="92" y1="132" x2="1508" y2="132" stroke="#DDE5DF" stroke-width="2"/>
+
+  <text x="92" y="205" class="sans title ink">品牌色彩策略</text>
+  <text x="92" y="247" class="sans body muted">以暖白建立清晰留白；以深墨綠承接專業與信任；</text>
+  <text x="92" y="282" class="sans body muted">以玫瑰銅聚焦預約與行動。</text>
+
+  <rect x="92" y="338" width="380" height="190" rx="2" fill="#FFFFFF" filter="url(#shadow)"/>
+  <rect x="92" y="338" width="11" height="190" fill="#C98F83"/>
+  <text x="126" y="390" class="sans small" fill="#C98F83">FIRST IMPRESSION</text>
+  <text x="126" y="438" class="sans label ink">安靜、有方法</text>
+  <text x="126" y="477" class="sans body muted">像一場高品質的策略對談，</text>
+  <text x="126" y="512" class="sans body muted">而不是一份工具清單。</text>
+
+  <text x="544" y="205" class="sans title ink">核心色票</text>
+  <text x="544" y="247" class="sans body muted">每一個顏色都有清楚的使用角色</text>
+  <g filter="url(#shadow)">
+    <rect x="544" y="300" width="600" height="90" fill="#F8F6F2"/>
+    <rect x="544" y="390" width="600" height="90" fill="#243B34"/>
+    <rect x="544" y="480" width="600" height="90" fill="#DDE5DF"/>
+    <rect x="544" y="570" width="600" height="90" fill="#C98F83"/>
+    <rect x="544" y="660" width="600" height="90" fill="#6F746F"/>
+  </g>
+  <text x="578" y="355" class="sans label ink">中性底色</text><text x="1110" y="355" class="sans hex ink" text-anchor="end">#F8F6F2</text>
+  <text x="578" y="445" class="sans label" fill="#F8F6F2">主色</text><text x="1110" y="445" class="sans hex" fill="#F8F6F2" text-anchor="end">#243B34</text>
+  <text x="578" y="535" class="sans label ink">輔助色</text><text x="1110" y="535" class="sans hex ink" text-anchor="end">#DDE5DF</text>
+  <text x="578" y="625" class="sans label ink">強調色</text><text x="1110" y="625" class="sans hex ink" text-anchor="end">#C98F83</text>
+  <text x="578" y="715" class="sans label" fill="#F8F6F2">文字灰</text><text x="1110" y="715" class="sans hex" fill="#F8F6F2" text-anchor="end">#6F746F</text>
+
+  <text x="1210" y="205" class="sans title ink">建議配色比例</text>
+  <text x="1210" y="247" class="sans body muted">60 / 30 / 10</text>
+  <circle cx="1350" cy="470" r="145" fill="none" stroke="#DDE5DF" stroke-width="70"/>
+  <circle cx="1350" cy="470" r="145" fill="none" stroke="#243B34" stroke-width="70" stroke-dasharray="273 638" stroke-dashoffset="0" transform="rotate(-90 1350 470)"/>
+  <circle cx="1350" cy="470" r="145" fill="none" stroke="#C98F83" stroke-width="70" stroke-dasharray="91 820" stroke-dashoffset="-273" transform="rotate(-90 1350 470)"/>
+  <text x="1350" y="461" class="serif" font-size="42" fill="#243B34" text-anchor="middle">60 / 30 / 10</text>
+  <text x="1350" y="493" class="sans small muted" text-anchor="middle">GOLDEN RATIO</text>
+  <g class="sans" font-size="20"><rect x="1210" y="690" width="18" height="18" fill="#DDE5DF"/><text x="1242" y="706" class="muted">60% 中性底色</text><rect x="1210" y="730" width="18" height="18" fill="#243B34"/><text x="1242" y="746" class="muted">30% 主體色系</text><rect x="1210" y="770" width="18" height="18" fill="#C98F83"/><text x="1242" y="786" class="muted">10% 強調色</text></g>
+
+  <line x1="92" y1="825" x2="1508" y2="825" stroke="#DDE5DF" stroke-width="2"/>
+  <text x="92" y="875" class="sans small" fill="#C98F83">WEB APPLICATION</text>
+  <rect x="300" y="848" width="290" height="62" fill="#243B34"/><text x="445" y="888" class="sans label" fill="#F8F6F2" text-anchor="middle">導覽列 / 主體</text>
+  <rect x="620" y="848" width="290" height="62" fill="#C98F83"/><text x="765" y="888" class="sans label ink" text-anchor="middle">預約對談 / CTA</text>
+  <rect x="940" y="848" width="290" height="62" fill="#DDE5DF"/><text x="1085" y="888" class="sans label ink" text-anchor="middle">區塊分層 / 輔助</text>
+  <text x="1508" y="888" class="serif" font-size="26" fill="#243B34" text-anchor="end">Clarity builds confidence.</text>
+</svg>
+
