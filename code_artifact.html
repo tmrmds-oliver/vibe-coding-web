@@ -21,6 +21,8 @@
     <meta property="og:image:width" content="1730" />
     <meta property="og:image:height" content="909" />
     <meta property="og:image:alt" content="AI、資料與策略驅動企業成長的抽象品牌視覺" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -1382,6 +1384,51 @@
             menu.setAttribute("aria-label", "開啟導覽選單");
           }),
         );
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (!window.gsap || !window.ScrollTrigger || reducedMotion) return;
+        gsap.registerPlugin(ScrollTrigger);
+
+        const intro = gsap.timeline({ defaults: { duration: 0.72, ease: "power3.out" } });
+        intro
+          .addLabel("intro")
+          .from(".nav", { y: -18, autoAlpha: 0 }, "intro")
+          .from(".hero-copy > *", { y: 26, autoAlpha: 0, stagger: 0.1 }, "intro+=0.12")
+          .from(".hero-visual", { x: 32, autoAlpha: 0 }, "intro+=0.2");
+
+        const contentBlocks = ".section-head, .intro-copy, .tree, .service-intro, .journal-aside, .contact-copy, .form";
+        document.querySelectorAll("main > section:not(.hero)").forEach((section) => {
+          const targets = section.querySelectorAll(contentBlocks);
+          if (!targets.length) return;
+          gsap.from(targets, {
+            y: 28,
+            autoAlpha: 0,
+            stagger: 0.08,
+            duration: 0.66,
+            ease: "power2.out",
+            scrollTrigger: { trigger: section, start: "top 78%", toggleActions: "play none none reverse" },
+          });
+        });
+
+        ScrollTrigger.batch(".service, .case, .post, .faq-list > div, .portfolio-media", {
+          interval: 0.12,
+          batchMax: 4,
+          start: "top 86%",
+          once: true,
+          onEnter: (batch) => gsap.from(batch, { y: 22, autoAlpha: 0, stagger: 0.09, duration: 0.62, ease: "power2.out", overwrite: "auto" }),
+        });
+
+        if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+          document.querySelectorAll("a, button, .service, .case, .post, .portfolio-media").forEach((element) => {
+            const isCard = element.matches(".service, .case, .post, .portfolio-media");
+            element.addEventListener("pointerenter", () => gsap.to(element, { y: isCard ? -5 : -2, scale: isCard ? 1.012 : 1.015, duration: 0.24, ease: "power2.out", overwrite: "auto" }));
+            element.addEventListener("pointerleave", () => gsap.to(element, { y: 0, scale: 1, duration: 0.34, ease: "power2.out", overwrite: "auto" }));
+          });
+        }
+
+        window.addEventListener("load", () => ScrollTrigger.refresh(), { once: true });
+      });
     </script>
   </body>
 </html>
