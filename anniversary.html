@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="小林髮廊 50 週年慶，消費滿 1,500 元即可參加抽獎，精美好禮與活動詳情一次看。" />
+    <title>小林髮廊 50 週年慶｜消費滿 1,500 元參加抽獎</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <style>
+      :root { --ink:#3d281d; --brown:#6e4326; --gold:#b78532; --gold-light:#e8c780; --cream:#fff7e9; --line:rgba(141,94,33,.36); --card:rgba(255,255,255,.64); }
+      * { box-sizing:border-box; }
+      html { scroll-behavior:smooth; }
+      body { margin:0; color:var(--ink); font-family:"Noto Serif TC","PingFang TC","Microsoft JhengHei",serif; background:radial-gradient(circle at 12% 0%,#fffdf7 0 13%,transparent 38%),linear-gradient(135deg,#f4dfb8 0%,#fff9ed 41%,#ead09a 100%); }
+      a { color:inherit; text-decoration:none; }
+      .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+      .site-nav { position:sticky; top:0; z-index:20; display:flex; justify-content:space-between; align-items:center; gap:20px; padding:14px clamp(20px,5vw,76px); background:rgba(255,249,237,.78); border-bottom:1px solid rgba(183,133,50,.25); backdrop-filter:blur(14px); font-family:"Noto Sans TC",sans-serif; }
+      .brand { font-weight:900; letter-spacing:.08em; color:var(--brown); }
+      .site-nav nav { display:flex; gap:20px; font-size:14px; }
+      .site-nav a { transition:color .25s ease,transform .25s ease; }
+      .site-nav nav a:hover { color:var(--gold); transform:translateY(-2px); }
+      .page { overflow:hidden; }
+      .wrap { width:min(1160px,calc(100% - 40px)); margin:auto; }
+      .hero { position:relative; min-height:690px; padding:72px 0 40px; isolation:isolate; }
+      .hero::before { content:""; position:absolute; z-index:-1; width:70vw; height:70vw; max-width:850px; max-height:850px; right:-16vw; top:-28vw; border-radius:50%; background:radial-gradient(circle,rgba(255,255,255,.94),rgba(255,255,255,.04) 68%); }
+      .hero-grid { display:grid; grid-template-columns:.76fr .9fr .86fr; align-items:center; gap:clamp(12px,3vw,44px); }
+      .logo { display:flex; align-items:center; gap:10px; color:var(--gold); font-family:"Noto Sans TC",sans-serif; font-weight:900; font-size:clamp(19px,2vw,29px); }
+      .logo-mark { width:44px; height:28px; border:3px solid currentColor; border-left:0; border-radius:50%; transform:skewX(-25deg); position:relative; }
+      .logo-mark::after { content:""; position:absolute; width:23px; height:12px; border:3px solid currentColor; border-right:0; border-radius:50%; left:-12px; top:8px; }
+      .anniversary-number { margin:42px 0 0; font:italic 900 clamp(118px,16vw,220px)/.7 Georgia,serif; letter-spacing:-.14em; color:transparent; background:linear-gradient(140deg,#8a4d15 4%,#f7df9d 22%,#a1631b 42%,#ffe8a6 60%,#8f571d 78%); -webkit-background-clip:text; background-clip:text; filter:drop-shadow(0 9px 3px rgba(94,53,8,.1)); }
+      .anniversary-title { margin:22px 0 6px; color:var(--brown); font-size:clamp(35px,5vw,66px); line-height:1; letter-spacing:.14em; }
+      .anniversary-sub { margin:0; font-family:"Noto Sans TC",sans-serif; color:#a17547; letter-spacing:.16em; font-size:14px; }
+      .portrait-frame { position:relative; min-height:540px; align-self:end; }
+      .portrait-frame::before { content:""; position:absolute; inset:8% -6% 0; background:radial-gradient(ellipse at center bottom,rgba(183,133,50,.45),transparent 64%); filter:blur(8px); }
+      .portrait { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 18%; clip-path:ellipse(48% 52% at 50% 48%); filter:saturate(.78) sepia(.12) contrast(.96); }
+      .offer { align-self:start; padding-top:18px; text-align:center; }
+      .offer-pill, .gold-pill { display:inline-block; border-radius:999px; padding:9px 22px; color:#fffdf6; background:linear-gradient(110deg,#a87927,#d6ad59 48%,#8b5c19); box-shadow:inset 0 1px rgba(255,255,255,.45),0 8px 20px rgba(104,64,16,.14); font-family:"Noto Sans TC",sans-serif; font-weight:900; }
+      .offer-pill { font-size:clamp(22px,3vw,37px); letter-spacing:.08em; }
+      .offer h1 { margin:22px 0 23px; font-size:clamp(35px,4.2vw,62px); line-height:1.2; letter-spacing:.14em; white-space:nowrap; }
+      .prizes { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+      .prize-card { position:relative; display:grid; place-items:center; aspect-ratio:1; border:4px solid var(--gold-light); border-radius:50%; background:radial-gradient(circle at 35% 25%,#fff 0%,#f8f0e3 65%,#eadac3 100%); box-shadow:0 12px 24px rgba(86,48,17,.13),inset 0 1px #fff; transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease; }
+      .prize-card:hover { transform:translateY(-7px) scale(1.035); box-shadow:0 20px 30px rgba(86,48,17,.2),inset 0 1px #fff; }
+      .prize-card svg { width:61%; height:61%; filter:drop-shadow(0 10px 6px rgba(44,30,18,.18)); }
+      .prize-label { margin:9px 0 0; font-size:clamp(18px,2vw,28px); font-weight:800; }
+      .sparkle { margin-top:22px; font-size:clamp(17px,1.7vw,24px); }
+      .ribbon { height:74px; margin-top:-18px; background:linear-gradient(175deg,transparent 0 31%,rgba(160,103,23,.94) 33%,#ffe2a0 47%,#a46519 58%,rgba(255,242,211,.4) 61%,transparent 66%),linear-gradient(8deg,transparent 0 42%,rgba(212,165,76,.38) 44%,transparent 55%); transform:rotate(-1deg); }
+      .content { padding:45px 0 72px; }
+      .grid-main { display:grid; grid-template-columns:.67fr 1.33fr; gap:clamp(32px,7vw,100px); align-items:start; }
+      .qr-station { text-align:center; position:sticky; top:96px; }
+      .qr { position:relative; width:min(300px,100%); aspect-ratio:1; margin:auto; padding:17px; background:repeating-linear-gradient(90deg,#fff 0 7px,#13100e 7px 14px),repeating-linear-gradient(#111 0 9px,#fff 9px 16px); box-shadow:0 0 0 11px #fff,0 0 0 13px rgba(101,60,25,.24),0 18px 32px rgba(61,40,29,.15); overflow:hidden; }
+      .qr::before,.qr::after { content:""; position:absolute; width:58px; height:58px; border:10px solid #111; background:#fff; box-shadow:inset 0 0 0 10px #111; }
+      .qr::before { left:17px; top:17px; } .qr::after { right:17px; bottom:17px; }
+      .store { margin:34px 0 0; font-size:clamp(45px,6vw,77px); line-height:1.25; font-weight:900; letter-spacing:.16em; }
+      .store small { display:block; font-size:.55em; letter-spacing:.12em; margin-top:7px; }
+      .section-kicker { margin:0 0 12px; font-family:"Noto Sans TC",sans-serif; font-size:13px; color:#a16f2b; font-weight:900; letter-spacing:.18em; }
+      .draw h2 { margin:0; font-size:clamp(29px,4vw,48px); letter-spacing:.08em; }
+      .lead { font-size:clamp(19px,2.2vw,28px); line-height:1.65; margin:13px 0 18px; }
+      table { width:100%; border-collapse:collapse; background:rgba(255,255,255,.66); font-family:"Noto Sans TC",sans-serif; font-size:clamp(14px,2vw,21px); box-shadow:0 14px 28px rgba(97,58,21,.09); }
+      td { padding:12px 16px; border:1px solid rgba(83,52,27,.66); text-align:center; white-space:nowrap; transition:background .25s ease,transform .25s ease; }
+      tr:hover td { background:rgba(243,214,150,.52); }
+      .note { margin:12px 0 0; font-size:16px; }
+      .lower { display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(35px,6vw,78px); align-items:start; margin-top:78px; }
+      .gold-pill { font-size:clamp(20px,2.5vw,31px); margin:0 0 18px; }
+      .steps { list-style:none; padding:0; margin:0; font-family:"Noto Sans TC",sans-serif; font-size:clamp(17px,2vw,23px); line-height:1.75; }
+      .steps li { padding:7px 0; border-bottom:1px solid rgba(183,133,50,.23); }
+      .socials { display:grid; grid-template-columns:1fr 1fr; gap:25px; text-align:center; }
+      .socials .qr { width:150px; max-width:100%; }
+      .socials p { margin:16px 0 0; font-size:20px; }
+      .gift-bar { position:relative; margin-top:65px; padding:35px 0; color:#5e3b20; background:linear-gradient(100deg,#c69646,#f5d88f 43%,#b8802c); box-shadow:inset 0 1px rgba(255,255,255,.45); overflow:hidden; }
+      .gift-bar::before { content:""; position:absolute; inset:0; opacity:.22; background:repeating-linear-gradient(120deg,transparent 0 45px,rgba(255,255,255,.55) 46px 48px,transparent 49px 95px); }
+      .gift-inner { position:relative; display:flex; gap:30px; align-items:center; }
+      .gift-icon { flex:0 0 135px; aspect-ratio:1; display:grid; place-items:center; border:3px solid rgba(255,251,236,.9); border-radius:50%; background:#fff9ec; box-shadow:0 8px 20px rgba(88,51,13,.16); }
+      .gift-icon svg { width:70%; height:70%; }
+      .gift-inner p { margin:0; font-size:clamp(20px,3vw,34px); font-weight:900; line-height:1.45; letter-spacing:.04em; }
+      footer { padding:28px 20px; text-align:center; color:#f7e8cc; background:#4a2c1a; font:13px "Noto Sans TC",sans-serif; }
+      @media (max-width:900px) { .hero-grid { grid-template-columns:1fr 1fr; } .offer { grid-column:span 2; order:3; max-width:640px; margin:auto; padding-top:0; } .portrait-frame { min-height:500px; } .grid-main { grid-template-columns:1fr; } .qr-station { position:static; display:grid; grid-template-columns:220px 1fr; align-items:center; gap:35px; text-align:left; } .store { margin:0; } .lower { grid-template-columns:1fr; } }
+      @media (max-width:620px) { .site-nav { padding:12px 18px; } .site-nav nav { gap:12px; font-size:12px; } .site-nav nav a:not(:last-child) { display:none; } .wrap { width:min(100% - 30px,560px); } .hero { min-height:0; padding-top:42px; } .hero-grid { grid-template-columns:1fr; text-align:center; } .logo { justify-content:center; } .anniversary-number { margin-top:28px; font-size:145px; } .portrait-frame { min-height:440px; margin:4px 0 -25px; } .offer { grid-column:auto; } .offer h1 { white-space:normal; font-size:34px; } .prizes { max-width:320px; margin:auto; } .ribbon { height:50px; } .content { padding-top:30px; } .qr-station { grid-template-columns:1fr; text-align:center; } .qr { width:220px; } .store { font-size:54px; } td { white-space:normal; padding:11px 7px; } .lower { margin-top:52px; } .socials { gap:16px; } .socials .qr { width:125px; } .gift-inner { display:block; text-align:center; } .gift-icon { margin:0 auto 18px; width:116px; } }
+    </style>
+  </head>
+  <body>
+    <header class="site-nav">
+      <a class="brand" href="code_artifact.html" aria-label="返回臺灣行銷研究主站">臺灣行銷研究</a>
+      <nav aria-label="活動頁導覽"><a href="#anniversary">週年活動</a><a href="#draw">抽獎區間</a><a href="#steps">登記步驟</a></nav>
+    </header>
+    <main class="page" id="anniversary">
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div class="reveal">
+            <div class="logo"><span class="logo-mark" aria-hidden="true"></span><span>小林髮廊</span></div>
+            <div class="anniversary-number" aria-label="50 週年">50</div>
+            <p class="anniversary-title">週年慶</p><p class="anniversary-sub">美麗 50 年・感謝有你</p>
+          </div>
+          <div class="portrait-frame reveal"><img class="portrait" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=85" alt="長髮女性的活動主視覺圖片" /></div>
+          <div class="offer reveal">
+            <span class="offer-pill">消費滿 1500 元</span><h1>即可參加抽獎！</h1>
+            <div class="prizes">
+              <div><div class="prize-card" aria-label="除濕機獎品示意圖"><svg viewBox="0 0 100 120" role="img"><rect x="25" y="6" width="50" height="106" rx="8" fill="#f9faf8" stroke="#9b8e7a" stroke-width="3"/><rect x="34" y="23" width="32" height="34" rx="2" fill="#d8dfdf"/><rect x="43" y="73" width="14" height="25" rx="3" fill="#81949a"/></svg></div><p class="prize-label">除濕機</p></div>
+              <div><div class="prize-card" aria-label="按摩儀獎品示意圖"><svg viewBox="0 0 120 120" role="img"><circle cx="45" cy="43" r="23" fill="#28302e"/><circle cx="45" cy="43" r="15" fill="#111"/><path d="M63 51h23a10 10 0 0 1 10 10v26H72V68H59z" fill="#f7faf9" stroke="#87908d" stroke-width="3"/><rect x="73" y="83" width="20" height="27" rx="6" fill="#e9eeec"/></svg></div><p class="prize-label">按摩儀</p></div>
+            </div><p class="sparkle gold-pill">有機會將精美好禮帶回家！</p>
+          </div>
+        </div>
+      </section>
+      <div class="ribbon" aria-hidden="true"></div>
+      <section class="content"><div class="wrap grid-main">
+        <aside class="qr-station reveal" aria-label="門市專屬 QR Code"><div class="qr" aria-label="門市 QR Code 佔位圖"></div><p class="store">總 店<small>店號：1001</small></p></aside>
+        <div class="draw reveal" id="draw"><p class="section-kicker">ANNIVERSARY LUCKY DRAW</p><h2>【消費金額抽獎區間表】</h2><p class="lead">實際消費金額滿 1500 元，可登記抽獎一次<br />以下範例說明：</p>
+          <table><caption class="sr-only">消費金額與線上抽獎券張數對照表</caption><tbody>
+            <tr><td>區間一</td><td>1,500－2,999</td><td>（線上抽獎券 1 張）</td></tr><tr><td>區間二</td><td>3,000－4,499</td><td>（線上抽獎券 2 張）</td></tr><tr><td>區間三</td><td>4,500－5,999</td><td>（線上抽獎券 3 張）</td></tr><tr><td>區間四</td><td>6,000－7,499</td><td>（線上抽獎券 4 張）</td></tr><tr><td>區間五</td><td>7,500－8,999</td><td>（線上抽獎券 5 張）</td></tr><tr><td>區間六</td><td>9,000－10,499</td><td>（線上抽獎券 6 張）</td></tr><tr><td>區間七</td><td>10,500－12,000</td><td>（線上抽獎券 7 張）</td></tr>
+          </tbody></table><p class="note">＊以上金額以此類推</p>
+        </div>
+      </div>
+      <div class="wrap lower"><section class="reveal" id="steps"><h2 class="gold-pill">抽獎登記操作步驟</h2><ol class="steps"><li>步驟 1：掃瞄店家專屬 QRCODE</li><li>步驟 2：協助顧客填寫抽獎資料</li><li>步驟 3：設計師確認輸入金額無誤，最後填寫提交。</li></ol></section>
+        <section class="reveal"><h2 class="gold-pill">得獎名單 2026／11 月公布</h2><div class="socials"><div><div class="qr" aria-label="官方網站 QR Code 佔位圖"></div><p>官方網站</p></div><div><div class="qr" aria-label="Facebook 粉專 QR Code 佔位圖"></div><p>FB 粉專</p></div></div></section>
+      </div></section>
+      <section class="gift-bar"><div class="wrap gift-inner"><div class="gift-icon" aria-hidden="true"><svg viewBox="0 0 120 120"><path d="M25 40c18-10 51-10 69 0v15c-18 9-51 9-69 0z" fill="#ded4c7" stroke="#76512e" stroke-width="4"/><path d="M26 57c17 9 50 9 68 0v17c-17 9-50 9-68 0z" fill="#bcae9b" stroke="#76512e" stroke-width="4"/><path d="M75 74 96 96M69 81l-21 20" stroke="#76512e" stroke-width="7" stroke-linecap="round"/></svg></div><p>留下 Google 商家五星好評，或分享官方活動貼文至 FB／IG，<br />即可獲得，精美分享禮一份！<small>（數量有限，送完為止）</small></p></div></section>
+    </main>
+    <footer>小林髮廊 50 週年慶活動頁</footer>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => { if (window.gsap) gsap.from(".reveal", { opacity:0, y:30, duration:.85, stagger:.16, ease:"power3.out" }); });
+    </script>
+  </body>
+</html>

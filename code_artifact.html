@@ -691,6 +691,44 @@
       .contact {
         background: var(--paper);
       }
+      .portfolio {
+        padding: 0;
+        background: var(--deep);
+      }
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: 0.72fr 1.28fr;
+        min-height: 660px;
+      }
+      .portfolio-media {
+        margin: 0;
+        overflow: hidden;
+        background: var(--ink);
+      }
+      .portfolio-media video,
+      .portfolio-media img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .portfolio-media video {
+        object-position: center;
+      }
+      .portfolio-media img {
+        object-position: center;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
       .contact-grid {
         display: grid;
         grid-template-columns: 0.8fr 1.2fr;
@@ -856,6 +894,10 @@
         .contact-grid {
           gap: 38px;
         }
+        .portfolio-grid {
+          grid-template-columns: 0.7fr 1.3fr;
+          min-height: 540px;
+        }
       }
       @media (max-width: 560px) {
         .wrap {
@@ -916,6 +958,16 @@
         .form {
           padding: 24px 20px;
         }
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+          min-height: 0;
+        }
+        .portfolio-media:first-child {
+          aspect-ratio: 9 / 12;
+        }
+        .portfolio-media:last-child {
+          aspect-ratio: 4 / 3;
+        }
         .footer-in {
           display: block;
         }
@@ -933,7 +985,7 @@
           ><span>劉安祐<small>TMR．臺灣行銷研究</small></span></a
         >
         <div class="links" id="main-nav-links">
-          <a href="#about">關於我</a><a href="#services">解決方案</a
+          <a href="#about">關於我</a><a href="#services">解決方案</a><a href="anniversary.html">50 週年活動</a
           ><a href="#cases">案例</a><a href="#journal">部落格</a>
         </div>
         <a
@@ -1276,6 +1328,19 @@
               ><span>我會盡快整理回覆，期待和你聊聊。</span>
             </div>
           </div>
+        </div>
+      </section>
+      <section class="portfolio" aria-labelledby="portfolio-title">
+        <h2 id="portfolio-title" class="sr-only">作品集展示</h2>
+        <div class="portfolio-grid">
+          <figure class="portfolio-media">
+            <video autoplay muted loop playsinline preload="metadata" aria-label="作品集直式影片展示">
+              <source src="8678581-uhd_2160_3840_30fps.mp4" type="video/mp4" />
+            </video>
+          </figure>
+          <figure class="portfolio-media">
+            <img src="pexels-timur-weber-8679072.jpg" alt="兩人舉起橘色飲品相碰的作品集照片" loading="lazy" decoding="async" />
+          </figure>
         </div>
       </section>
     </main>
